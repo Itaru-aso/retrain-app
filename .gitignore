@@ -1,0 +1,8 @@
+__pycache__/
+*.pyc
+model/
+dataset/
+download/
+backup/
+output/
+*.onnx

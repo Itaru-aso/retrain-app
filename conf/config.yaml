@@ -1,0 +1,51 @@
+defaults:
+- override hydra/sweeper: optuna
+hydra:
+  sweeper:
+    direction: maximize
+    study_name: null
+    storage: null
+    n_trials: 20
+    n_jobs: 2
+ftp_common:
+  start_path: /camera1_image
+  local_root: ./annotated_data
+ftp_hosts:
+  - name: 検査PC_1
+    host: 169.254.93.171
+    username: ykk\shisui_PJ
+    password: shisui@09
+    monochro_port: 2121
+    color_port: 2122
+    model_port: 2123
+mode: 'monochro'
+target_color: '875'
+dataset_path: ./dataset
+model_dir: ./model
+backup_dir: ./backup
+download_dir: ./download
+train_step: 50000
+batch_size: 4
+gpu_id: 0
+epochs: 80
+out_channels: 384
+seed: 42
+image_size:
+  height: 256
+  width: 512
+output:
+  dir: output/1
+model_size: small
+imagenet_train_path: D:/shisui/ILSVRC/Data/CLS-LOC/train
+model:
+  lr: 0.0003
+  weight_decay: 1.0e-05
+  gamma: 0.1
+loss_stae: 1.0
+loss_st: 5.0
+loss_ae: 0.2
+map_st: 0.9
+map_ae: 0.2
+cutoff: 0.33
+early_stop_patience: 5
+recall_threshold: 0.8
